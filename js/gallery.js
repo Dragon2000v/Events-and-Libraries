@@ -70,7 +70,7 @@ gallery.addEventListener('click', function (event) {
   event.preventDefault();
 
   if (event.target.classList.contains('gallery-image')) {
-    const originalImage = event.target.dataset.custom;
+    const originalImage = event.target.dataset.source;
     const instance = basicLightbox.create(
       `<img src="${originalImage}" width="1112" height="640">`
     );
@@ -92,7 +92,8 @@ images.forEach(image => {
   const img = document.createElement('img');
   img.classList.add('gallery-image');
   img.src = image.preview;
-  img.dataset.custom = image.original;
+  img.dataset.source = image.original;
   img.alt = image.description;
-  galleryItem.appendChild(img);
+
+  link.appendChild(img);
 });
